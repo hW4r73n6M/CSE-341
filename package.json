@@ -1,0 +1,18 @@
+{
+  "name": "CSE-341",
+  "version": "1.0.0",
+  "description": "Backend Herick",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "nodemon",
+    "start": "node ./src/index.js"
+  },
+  "author": "Herick Guillen",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0",
+    "nodemon": "^3.0.2"
+  }
+}
