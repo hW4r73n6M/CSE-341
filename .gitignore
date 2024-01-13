@@ -1,2 +1,3 @@
 node_modules/
-src/_helpers/environments.js
+// src/_helpers/environments.js
+.env
