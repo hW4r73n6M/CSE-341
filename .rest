@@ -1,1 +1,3 @@
-### GET http://localhost:8080/professional ###
+###
+GET http://localhost:7443/apis/professionals/all
+###
