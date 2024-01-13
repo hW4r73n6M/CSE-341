@@ -2,10 +2,10 @@
   "name": "CSE-341",
   "version": "1.0.0",
   "description": "Backend Herick",
-  "main": "./src/index.js",
+  "main": "./src/server.js",
   "scripts": {
     "test": "nodemon",
-    "start": "node ./src/index.js"
+    "start": "node ./src/server.js"
   },
   "author": "Herick Guillen",
   "license": "ISC",
