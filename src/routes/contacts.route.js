@@ -3,9 +3,9 @@ const router = express.Router();
 const ctrlFn = require('../controllers/contacts.controllers');
 
 
-router.get('/all', ctrlFn.getAllProfessionals);
-router.get('/id/:id', ctrlFn.getProfessionalById);
-router.post('/create', ctrlFn.createNewProfessional);
-router.put('/update', ctrlFn.modifyCurrentProfessional);
+router.get('/all', ctrlFn.getAllContacts);
+router.get('/id/:id', ctrlFn.getContactById);
+router.post('/create', ctrlFn.createNewContact);
+router.put('/update', ctrlFn.modifyCurrentContact);
 
 module.exports = router;
