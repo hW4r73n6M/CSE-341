@@ -1,5 +1,5 @@
-const MONGO_USER = process.env.DB_USER; // 'hguillen';
-const MONGO_PASSWORD = process.env.DB_PASS; //'aWDRzW4u4qfmxXb2';
+const MONGO_USER = 'hguillen';
+const MONGO_PASSWORD = 'aWDRzW4u4qfmxXb2';
 const MONGO_SERVER = 'cluster0.q5nojgs.mongodb.net';
 const MONGO_DB = 'cse341';
 
