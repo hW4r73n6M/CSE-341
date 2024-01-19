@@ -1,4 +1,8 @@
 ###
+GET http://localhost:7443/apis/
+###
+
+###
 GET http://localhost:7443/apis/professionals/all
 ###
 
