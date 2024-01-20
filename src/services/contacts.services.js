@@ -61,7 +61,7 @@ const modifyContact = async (iData) => {
         const docId = new environment.ObjectId(iData._id)
         const client = await environment.MongoClient.connect(environment.mongoServer);
         const db = client.db(environment.mongoDB);
-        let doc = await db.collection('contacts').updateOne({ "_id": docId }, { $set: { "name": iData.name }});
+        let doc = await db.collection('contacts').updateOne({ "_id": docId }, { $set: { "firstName": iData.firstName }}); /* aquí */
         await client.close();
         console.log("modifyContact >> Response: ", doc);
         return {
@@ -75,11 +75,31 @@ const modifyContact = async (iData) => {
     }
 }
 
+const deleteContact = async (iData) => {
+    try {
+        const docId = new environment.ObjectId(iData._id)
+        const client = await environment.MongoClient.connect(environment.mongoServer);
+        const db = client.db(environment.mongoDB);
+        let doc = await db.collection('contacts').deleteOne({ "_id": docId });
+        await client.close();
+        console.log("deleteContact >> Response: ", doc);
+        return {
+            error: false,
+            message: 'The record was updated successfully.',
+            id: iData._id
+        };
+    } catch (err) {
+        console.error("deleteContact >> Error: ", err);
+        throw err;
+    }
+}
+
 
 
 module.exports =  {
     getContacts,
     getContact,
     createContact,
-    modifyContact
+    modifyContact,
+    deleteContact
 }
