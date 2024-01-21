@@ -40,10 +40,33 @@ const createNewContact = async (req, res) => {
 }
 
 
-const modifyCurrentContact = async (req, res) => {
+const modifyContactById = async (req, res) => {
     try {
-        let iData = req.body;
-        const response = await srvFn.modifyContact(iData);
+        let iData = {
+            _id: req.params.id
+        };
+        const user = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            favoriteColor: req.body.favoriteColor,
+            birthday: req.body.birthday
+        };
+        const response = await srvFn.modifyContact(iData, user);
+        if (response.error) { return res.status(404).json(response)}
+        return res.json(response)
+    } catch (err) {
+        return res.status(500).json({error: true, message: 'Error Interno del Sistema: ' + err});
+    }
+}
+
+
+const deleteContactById = async (req, res) => {
+    try {
+        let iData = {
+            _id: req.params.id
+        };
+        const response = await srvFn.deleteContact(iData);
         if (response.error) { return res.status(404).json(response)}
         return res.json(response)
     } catch (err) {
@@ -55,5 +78,6 @@ module.exports = {
     getAllContacts,
     getContactById,
     createNewContact,
-    modifyCurrentContact
+    modifyContactById,
+    deleteContactById
 };

@@ -56,14 +56,16 @@ const createContact = async (iData) => {
     }
 }
 
-const modifyContact = async (iData) => {
+const modifyContact = async (iData, user) => {
     try {
-        const docId = new environment.ObjectId(iData._id)
+        const docId = new environment.ObjectId(iData._id);
+        const docBody = JSON.stringify(iData.body);
         const client = await environment.MongoClient.connect(environment.mongoServer);
         const db = client.db(environment.mongoDB);
-        let doc = await db.collection('contacts').updateOne({ "_id": docId }, { $set: { "name": iData.name }});
+        let doc = await db.collection('contacts').replaceOne({ "_id": docId }, user);
         await client.close();
         console.log("modifyContact >> Response: ", doc);
+        console.log("DEBUG >> docBody: ", docBody);
         return {
             error: false,
             message: 'The record was updated successfully.',
@@ -76,10 +78,32 @@ const modifyContact = async (iData) => {
 }
 
 
+const deleteContact = async (iData) => {
+    try {
+        const docId = new environment.ObjectId(iData._id)
+        const client = await environment.MongoClient.connect(environment.mongoServer);
+        const db = client.db(environment.mongoDB);
+        let doc = await db.collection('contacts').deleteOne({"_id": docId});
+        await client.close();
+        console.log("deleteContacts >> Response: ", doc);
+        return {
+            error: false,
+            message: 'The delete completed successfully.',
+            doc: doc
+        };
+
+    } catch (err) {
+        console.error("deleteContacts >> Error: ", err);
+        throw err;
+    }
+}
+
+
 
 module.exports =  {
     getContacts,
     getContact,
     createContact,
-    modifyContact
+    modifyContact,
+    deleteContact
 }
