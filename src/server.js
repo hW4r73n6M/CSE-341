@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser');
 const environment = require('./_helpers/environments.js');
 const professionalsRoute = require('./routes/professionals.route');
 const contactsRoute = require('./routes/contacts.route');
