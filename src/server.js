@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const environment = require('./_helpers/environments.js');
 const professionalsRoute = require('./routes/professionals.route');
 const contactsRoute = require('./routes/contacts.route');
-const bodyParser = require('body-parser');
 
 const app = express();
 const options = {

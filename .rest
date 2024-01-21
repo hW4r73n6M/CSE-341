@@ -3,9 +3,39 @@ GET http://localhost:7443/apis/professionals/all
 ###
 
 ###
-# GET http://localhost:7443/apis/contacts/all
+GET http://localhost:7443/apis/contacts/
 ###
 
 ###
-GET http://localhost:7443/apis/contacts/
+GET http://localhost:7443/apis/contacts/65a2cf91d84320f9b7b30366
+###
+
+###
+POST http://localhost:7443/apis/contacts/ HTTP/1.1
+
+Content-Type: application/json
+{
+    "firstName": "Cyber-3",
+    "lastName": "Security-3",
+    "email": "test@aol.com",
+    "favoriteColor": "brown",
+    "birthday": "28/10/3015"
+}
+###
+
+###
+PUT http://localhost:7443/apis/contacts/65a2cf91d84320f9b7b30366 HTTP/1.1 
+
+Content-Type: application/json
+{
+    "firstName": "Cyber-4",
+    "lastName": "Security-4",
+    "email": "test@hotmail.com",
+    "favoriteColor": "purple",
+    "birthday": "12/05/2015"
+}
+###
+
+###
+DELETE http://localhost:7443/apis/contacts/65acb179fc1956b1532206f8 HTTP/1.1
 ###

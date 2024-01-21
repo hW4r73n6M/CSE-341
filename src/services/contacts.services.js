@@ -105,7 +105,7 @@ module.exports =  {
     getContact,
     createContact,
     modifyContact,
-    deleteContact
+    deleteContact,
     modifyContact,
     deleteContact
 }
