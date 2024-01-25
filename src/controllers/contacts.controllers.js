@@ -32,7 +32,7 @@ const createNewContact = async (req, res) => {
     try {
         let iData = req.body;
         const response = await srvFn.createContact(iData);
-        if (response.error) { return res.status(404).json(response)}
+        // if (response.error) { return res.status(404).json(response)} // express-validator
         return res.json(response)
     } catch (err) {
         return res.status(500).json({error: true, message: 'Error Interno del Sistema: ' + err});

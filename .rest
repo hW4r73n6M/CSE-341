@@ -11,7 +11,7 @@ GET http://localhost:7443/apis/contacts/65a2cf91d84320f9b7b30366
 ###
 
 ###
-POST http://localhost:7443/apis/contacts/ HTTP/1.1
+POST http://localhost:7443/apis/contacts/ HTTP/1.1 
 
 Content-Type: application/json
 {
@@ -24,18 +24,18 @@ Content-Type: application/json
 ###
 
 ###
-PUT http://localhost:7443/apis/contacts/65a2cf91d84320f9b7b30366 HTTP/1.1 
+PUT http://localhost:7443/apis/contacts/65b0707fdf1487ae5d6d2dee HTTP/1.1
 
 Content-Type: application/json
 {
-    "firstName": "Cyber-4",
-    "lastName": "Security-4",
-    "email": "test@hotmail.com",
-    "favoriteColor": "purple",
-    "birthday": "12/05/2015"
+    "firstName": "Carlos",
+    "lastName": "Morales",
+    "email": "cmorales@aol.com",
+    "favoriteColor": "gray",
+    "birthday": "03/08/2016"
 }
 ###
 
 ###
-DELETE http://localhost:7443/apis/contacts/65acb179fc1956b1532206f8 HTTP/1.1
+DELETE http://localhost:7443/apis/contacts/65b0700ddf1487ae5d6d2ded HTTP/1.1
 ###
