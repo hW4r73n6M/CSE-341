@@ -1,5 +1,6 @@
 const express = require('express');
 const srvFn = require('../services/contacts.services');
+const { body, validationResult } = require('express-validator');
 
 
 const getAllContacts = async (req, res) => {
@@ -31,8 +32,21 @@ const getContactById = async (req, res) => {
 const createNewContact = async (req, res) => {
     try {
         let iData = req.body;
-        const response = await srvFn.createContact(iData);
-        // if (response.error) { return res.status(404).json(response)} // express-validator
+        body('firstName').exists().isLength({ min: 3}).withMessage('must be at least 3 chars long.')
+        body('lastName').exists().isLength({ min: 3}).withMessage('must be at least 3 chars long.')
+        body('email').exists().isEmail().withMessage('must be a valid email.')
+        body('favoriteColor').exists().not().isEmpty().withMessage('must contain the color name.')
+        body('birthday').exists().isDate().withMessage('must be a date.')
+        
+        
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).json({ errors: errors.array() });
+        }
+
+
+        const response = await srvFn.createContact(iData);        
+        if (response.error) { return res.status(404).json(response)}
         return res.json(response)
     } catch (err) {
         return res.status(500).json({error: true, message: 'Error Interno del Sistema: ' + err});
